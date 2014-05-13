@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
  */
 
 // SPI Clock Rate in kHz
-const SPICLK = 12000;
+const SPICLK = 13000;
 // I/O Expander 8-bit address
 const IOEXP_ADDR = 0x40;
 
@@ -1079,7 +1079,7 @@ agent.on("newImgStart", function(data) {
     display.fillScreen(0xAA);
     // signal we're ready for the new image data, sent inverted first
     //server.log("Device Ready for new image inverted.");
-    agent.send("readyForNewImgInv",0);
+    agent.send("readyForNewImgInv", 0);
 });
 
 agent.on("newImgInv", function(data) {
