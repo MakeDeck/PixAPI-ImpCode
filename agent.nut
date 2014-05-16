@@ -266,6 +266,7 @@ class PixApiImageRequest {
   m_width = 0;
   m_format = "";
   m_text_items = [];
+  m_image_items = [];
   m_version = "";
   m_encoding = "";
   m_url = "";
