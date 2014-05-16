@@ -285,6 +285,7 @@ class PixApiImageRequest {
     m_width = width;
     m_format = format;
     m_text_items = [];
+    m_image_items = [];
     m_version = version;
     m_encoding = encoding;
     m_url = url;
@@ -321,7 +322,19 @@ class PixApiImageRequest {
     return m_text_items.len() - 1;
   }
   
-    /**
+  /**
+   * @brief Used to add a new image
+   * @param url to the image
+   * @param new_x is the x position of the top left of the image
+   * @param new_y is the y position of the top left of the image
+   * @return a handle for the image_item to use to modify later (currently unused)
+   */
+  function addimage(new_url, new_x, new_y) {
+    m_text_items.append({url=new_url, x=new_x, y=new_y});
+    return m_image_items.len() - 1;
+  }
+  
+  /**
    * 
    * @return should return a blob but currently on returns a string
    */
@@ -333,6 +346,7 @@ class PixApiImageRequest {
     json_object.rawset("width", m_width);
     json_object.rawset("format", m_format);
     json_object.rawset("text", m_text_items);
+    json_object.rawset("image", m_image_items);
     return send_request(json_object);
   }
   
